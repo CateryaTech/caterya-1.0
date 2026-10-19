@@ -1,0 +1,11 @@
+# In-memory demo server. Set CATERYA_API_KEY for anything beyond localhost.
+services:
+  caterya:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    environment:
+      CATERYA_API_KEY: ${CATERYA_API_KEY:-}
+      CATERYA_API_DEMO: ${CATERYA_API_DEMO:-1}
+      CATERYA_ALLOWED_HOSTS: ${CATERYA_ALLOWED_HOSTS:-}
+    read_only: true
+    cap_drop: [ALL]

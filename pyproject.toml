@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caterya"
+dynamic = ["version"]
+description = "CATERYA AI Assurance Infrastructure - Measure. Verify. Assure. Open, vendor-neutral evaluation, verifiable evidence, tamper-evident provenance and continuous assurance for AI systems."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ary H Haryanto (Ary HH)", email = "aryhharyanto@proton.me" }]
+maintainers = [{ name = "Caterya Tech" }]
+keywords = ["ai-assurance", "ai-evaluation", "provenance", "evidence", "fairness", "robustness", "agents", "merkle", "attestation", "quantum", "blockchain"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Typing :: Typed",
+]
+# The core (evaluation, evidence, Merkle log, guardrails, monitoring, built-in quantum simulator, CLI) is standard-library only.
+dependencies = []
+
+[project.optional-dependencies]
+crypto = ["cryptography>=42"]                       # real Ed25519 signatures (required for assurance level >= 2)
+api = ["fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2"]
+graphql = ["strawberry-graphql>=0.230"]
+web3 = ["web3>=7"]                                  # EVM anchoring + on-chain assurance gate clients
+telemetry = ["opentelemetry-api>=1.24"]
+quantum-backends = ["pennylane>=0.36", "qiskit>=1.0", "qiskit-aer>=0.14"]   # opt-in, heavy; never part of `all`
+hf = ["transformers>=4.40"]                         # opt-in, heavy; never part of `all`
+dev = ["pytest>=8", "jsonschema>=4", "httpx>=0.27", "ruff>=0.5", "eth-tester[py-evm]>=0.12"]
+all = ["caterya[crypto,api,graphql,web3,telemetry]"]
+
+[project.scripts]
+caterya = "caterya.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cateryatech/caterya-1.0"
+Issues = "https://github.com/cateryatech/caterya-1.0/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "caterya.version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+caterya = ["py.typed", "locales/*.json", "blockchain/abi/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning", "ignore::UserWarning"]
+
+[tool.ruff]
+line-length = 160
+target-version = "py310"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501", "E731", "E741", "B008", "B905", "B904", "B017", "UP006", "UP007", "UP035", "UP045", "UP037", "UP017", "UP015", "I001"]

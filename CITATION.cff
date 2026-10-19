@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use CATERYA AI Assurance Infrastructure, please cite it as below."
+title: "CATERYA AI Assurance Infrastructure"
+type: software
+version: "1.0.0-alpha.1"
+date-released: "2026-10-15"
+license: Apache-2.0
+repository-code: "https://github.com/cateryatech/caterya-1.0"
+authors:
+  - family-names: Haryanto
+    given-names: "Ary H"
+    alias: "Ary HH"
+    affiliation: "Caterya Tech"
+keywords: [ai-assurance, evidence, provenance, fairness, robustness, agents]
+abstract: >-
+  Open, vendor-neutral infrastructure that evaluates AI systems, produces verifiable evidence about their behaviour and risk,
+  preserves tamper-evident provenance, and supports continuous assurance across the AI lifecycle.

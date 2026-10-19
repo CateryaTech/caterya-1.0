@@ -1,0 +1,117 @@
+{
+  "$id": "https://caterya.tech/schemas/evidence.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actor": {
+      "type": "string"
+    },
+    "ci": {
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "claim": {
+      "type": "string"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "evidence_id": {
+      "pattern": "^ev_[0-9a-f]{16}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "metric",
+        "car",
+        "decision",
+        "guardrail",
+        "swarm",
+        "monitor",
+        "incident",
+        "mapping",
+        "note"
+      ]
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "prev_hash": {
+      "type": "string"
+    },
+    "record_hash": {
+      "type": "string"
+    },
+    "result": {
+      "type": "object"
+    },
+    "seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "signature": {
+      "properties": {
+        "alg": {
+          "type": "string"
+        },
+        "key_id": {
+          "type": "string"
+        },
+        "sig": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alg",
+        "key_id",
+        "sig"
+      ],
+      "type": "object"
+    },
+    "spec": {
+      "const": "caterya.evidence/v1"
+    },
+    "spec_hash": {
+      "type": "string"
+    },
+    "system_hash": {
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "untested": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "kind",
+    "claim",
+    "timestamp",
+    "prev_hash",
+    "record_hash",
+    "evidence_id",
+    "signature",
+    "spec"
+  ],
+  "title": "CATERYA Evidence",
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "caterya-contracts",
+  "version": "1.0.0-alpha.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "CATERYA reference contracts (unaudited). Compiled with solc-js; sources have no external dependencies, so Hardhat/Foundry can consume them unchanged.",
+  "scripts": { "compile": "node scripts/compile.js --bytecode artifacts/contracts.json" },
+  "dependencies": { "solc": "0.8.26" }
+}

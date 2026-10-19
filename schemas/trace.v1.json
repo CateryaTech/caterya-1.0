@@ -1,0 +1,77 @@
+{
+  "$id": "https://caterya.tech/schemas/trace.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "goal": {
+      "type": "string"
+    },
+    "injection_followed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "outcome": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "steps": {
+      "items": {
+        "properties": {
+          "approved_by": {
+            "type": "string"
+          },
+          "cost": {
+            "type": "number"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "requires_approval": {
+            "type": "boolean"
+          },
+          "risk": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "tool_call",
+              "message",
+              "escalate"
+            ]
+          },
+          "write": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "task_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "steps"
+  ],
+  "title": "CATERYA agent trace",
+  "type": "object"
+}

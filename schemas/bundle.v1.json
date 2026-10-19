@@ -1,0 +1,32 @@
+{
+  "$id": "https://caterya.tech/schemas/bundle.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "anchors": {
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "evidence.v1.json"
+      },
+      "type": "array"
+    },
+    "keyring": {
+      "type": "object"
+    },
+    "tree_head": {
+      "type": "object"
+    },
+    "version": {
+      "const": "caterya.bundle/v1"
+    }
+  },
+  "required": [
+    "version",
+    "keyring",
+    "evidence",
+    "tree_head"
+  ],
+  "title": "CATERYA evidence bundle",
+  "type": "object"
+}
