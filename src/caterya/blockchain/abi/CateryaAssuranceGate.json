@@ -1,0 +1,373 @@
+[
+  {
+    "inputs": [],
+    "name": "BadExpiry",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "BadLevel",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NoAttestation",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAllowedToRevoke",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAttester",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotPendingOwner",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "level",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "carHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "expiresAt",
+        "type": "uint64"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "attester",
+        "type": "address"
+      }
+    ],
+    "name": "Attested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "who",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "AttesterSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferStarted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "by",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "Revoked",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_LEVEL",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "level",
+        "type": "uint8"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "carHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint64",
+        "name": "expiresAt",
+        "type": "uint64"
+      }
+    ],
+    "name": "attest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "attesters",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getAttestation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint8",
+            "name": "level",
+            "type": "uint8"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "carHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint64",
+            "name": "issuedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "expiresAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "attester",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "revoked",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct CateryaAssuranceGate.Attestation",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "minLevel",
+        "type": "uint8"
+      }
+    ],
+    "name": "isAssured",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "revoke",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "who",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "setAttester",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

@@ -1,0 +1,143 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract ICateryaAssuranceGate",
+        "name": "gate_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "minLevel_",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "NotAdmin",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAssured",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "WrongManager",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "action",
+        "type": "bytes32"
+      }
+    ],
+    "name": "Executed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ManagerSet",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "admin",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "action",
+        "type": "bytes32"
+      }
+    ],
+    "name": "execute",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "gate",
+    "outputs": [
+      {
+        "internalType": "contract ICateryaAssuranceGate",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "managerSystemHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "minLevel",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

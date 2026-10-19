@@ -1,0 +1,3 @@
+{"title": "Assurance record", "recommendation": "Recommendation", "risk": "Risk", "coverage": "Coverage", "gaps": "Not tested (gaps)",
+ "RECOMMEND_ASSURE": "recommend assure", "RECOMMEND_CONDITIONAL": "recommend conditional", "RECOMMEND_REJECT": "recommend reject",
+ "INSUFFICIENT_EVIDENCE": "insufficient evidence"}

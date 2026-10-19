@@ -1,0 +1,26 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "systemHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "minLevel",
+        "type": "uint8"
+      }
+    ],
+    "name": "isAssured",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
